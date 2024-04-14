@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Traffic Light System</title>
+<style>
+  body { 
+            background-color: #0b2e42; 
+        } 
+
+.container {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+}
+
+#traffic-light-container {
+  flex: 1;
+  display: flex;
+  justify-content:center;
+}
+.btn1 {
+  height: 50px;
+  width: 120px;
+  padding: 10px 20px;
+  margin: 5px;
+  background-color: #f1f5f9;
+  color: rgb(0, 0, 0);
+  border: 1;
+  cursor: pointer;
+}
+.btn2 {
+  height: 50px;
+  width: 120px;
+  padding: 10px 20px;
+  margin: 5px;
+  background-color: #f1f5f9;
+  color: rgb(0, 0, 0);
+  border: 1;
+  cursor: pointer;
+}.btn3 {
+  height: 50px;
+  width: 120px;
+  padding: 10px 20px;
+  margin: 5px;
+  background-color: #f1f5f9;
+  color: rgb(0, 0, 0);
+  border: 1;
+  cursor: pointer;
+}.btn4 {
+  height: 50px;
+  width: 120px;
+  padding: 10px 20px;
+  margin: 5px;
+  background-color: #f1f5f9;
+  color: rgb(0, 0, 0);
+  border: 1;
+  cursor: pointer;
+}.btn5 {
+  height: 50px;
+  width: 120px;
+  padding: 10px 20px;
+  margin: 5px;
+  background-color: #f1f5f9;
+  color: rgb(0, 0, 0);
+  border: 1;
+  cursor: pointer;
+}.btn6 {
+  height: 50px;
+  width: 120px;
+  padding: 10px 20px;
+  margin: 5px;
+  background-color: #f1f5f9;
+  color: rgb(0, 0, 0);
+  border: 1;
+  cursor: pointer;
+}
+#button-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.btn1:hover {
+  background-color: #828b94;}
+  .btn2:hover {
+  background-color: #828b94;}
+  .btn3:hover {
+  background-color: #828b94;}
+  .btn4:hover {
+  background-color: #828b94;}
+  .btn5:hover {
+  background-color: #828b94;}
+  .btn6:hover {
+  background-color: #828b94;}
+
+  .btn1:focus{
+    background-color:red;
+}
+.btn2:focus{
+    background-color:yellow;
+}.btn3:focus{
+    background-color:rgb(0, 255, 0);
+}.btn4:focus{
+    background-color:rgb(173, 47, 232);
+}.btn5:focus{
+    background-color:rgb(45, 204, 232);
+}.btn6:focus{
+    background-color:rgb(217, 61, 147);
+}
+
+    .traffic-light {
+      width: 120px;
+      height: 360px;
+      background-color: #333;
+      border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+      }
+
+    .light {
+      margin: 20px;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background-color: #1e1d1d;
+        transition: background-color 1s; 
+    }
+    #red:checked ~ .traffic-light #red-light {
+        background-color: rgb(255, 0, 0);
+    }
+
+    #yellow:checked ~ .traffic-light #yellow-light {
+        background-color: rgb(255, 255, 0);
+    }
+
+    #green:checked ~ .traffic-light #green-light {
+        background-color: rgb(0, 255, 0);
+    }
+
+    #orange:checked ~ .traffic-light #red-light{
+      background-color: rgb(255, 0, 0);
+    }
+    #orange:checked ~ .traffic-light #yellow-light{
+      background-color: rgb(255, 255, 0);
+    }
+    #orange:checked ~ .traffic-light #green-light {
+        background-color: rgb(0, 255, 0);
+    }
+   
+
+    #start:checked ~ .traffic-light #red-light{
+            background-color: red; 
+            animation: blinkRed 2s infinite;
+    }
+    #start:checked ~ .traffic-light #yellow-light{
+            background-color: yellow; 
+            animation: blinkYellow 2s infinite; 
+            animation-delay: 3s; 
+    }
+    #start:checked ~ .traffic-light #green-light {
+            background-color: green; 
+            animation: blinkGreen 3s infinite; 
+            animation-delay: 4s; 
+    }
+
+    @keyframes blinkRed { 
+  
+  0%, 
+  49% { 
+      background-color: red; 
+  } 
+
+  50%, 
+  100% { 
+      background-color: black; 
+  } 
+} 
+
+@keyframes blinkYellow { 
+
+  0%, 
+  49% { 
+      background-color: yellow; 
+  } 
+
+  50%, 
+  100% { 
+      background-color: black; 
+  } 
+} 
+
+@keyframes blinkGreen { 
+
+  0%, 
+  49% { 
+      background-color: green; 
+  } 
+
+  50%, 
+  100% { 
+      background-color: black; 
+  } 
+} 
+
+    #reset:checked ~ .traffic-light .light{
+        animation: none;
+        background-color: seagreen;
+    }
+
+</style>
+</head>
+<body>
+<div class="container">
+  <div id="traffic-light-container">
+<input type="radio" id="red" name="traffic-light" hidden>
+<input type="radio" id="yellow" name="traffic-light" hidden>
+<input type="radio" id="green" name="traffic-light" hidden>
+<input type="radio" id="orange" name="traffic-light" hidden>
+<input type="radio" id="start" name="traffic-light" hidden>
+<input type="radio" id="reset" name="traffic-light" hidden>
+<div class="traffic-light">
+    <div class="light" id="red-light"></div>
+    <div class="light" id="yellow-light"></div>
+    <div class="light" id="green-light"></div>
+</div></div>
+<div id="button-container">
+<button class="btn1" onclick="document.getElementById('red').checked = true; "><b>Red</b></button>
+<button class="btn2" onclick="document.getElementById('yellow').checked = true;"><b>Yellow</b></button>
+<button class="btn3" onclick="document.getElementById('green').checked = true;"><b>Green</b></button>
+<button class="btn4" onclick="document.getElementById('orange').checked = true;"><b>All</b></button>
+<button class="btn5" onclick="document.getElementById('start').checked = true;"><b>Alternate</b></button>
+<button class="btn6" onclick="document.getElementById('reset').checked = true;"><b>Reset</b></button>
+</div></div>
+</body>
+</html>
